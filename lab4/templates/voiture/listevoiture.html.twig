@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listes des voitures</title>
+</head>
+<body>
+    
+
+<h1>Listes des voitures</h1>
+<table border="1">
+
+<tr>
+   <td>Serie</td>
+   <td>Date Mise en Marche</td>
+   <td>Modele</td>
+</tr>
+    {% for v in listeVoiture %}
+<tr>
+   <td>{{ v.serie }}</td>
+   <td>{{ v.dateMiseEnMarche | date('d/m/Y') }}</td>
+   <td>{{ v.modele }}</td>
+   <td><a href="{{ path("voitureDelete", { 'id': v.id } ) }}">suppression </a></td>
+   <td><a href="{{ path("voitureUpdate", { 'id': v.id } ) }}">Mettre à jour </a></td>
+</tr> 
+    {% endfor %}
+</table>
+</body>
+</html>
